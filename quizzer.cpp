@@ -7,7 +7,7 @@
 #include <ctime>
 using namespace std;
 
-const char QUESTIONS_FILE_NAME[] = "questions.dat";
+const char QUESTIONS_FILE_NAME[] = "questions.txt";
 const char QUESTION_ANSWER_SEPARATOR = ',';
 const char QUESTION_SEPARATOR = '\n';
 
@@ -27,7 +27,7 @@ int main()
   char user_answer[MAX_ANSWER_LENGTH];
   
   ifstream fin;
-  fin.open( "questions.dat" );
+  fin.open( QUESTIONS_FILE_NAME );
   
   
   srand(time(NULL));
