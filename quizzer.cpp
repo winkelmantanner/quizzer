@@ -50,7 +50,7 @@ int main()
     question_choice = rand() % counter;
   
     cout << endl << questions[question_choice] << " ";
-    cin >> user_answer;
+    cin.getline(user_answer,MAX_ANSWER_LENGTH,'\n');
     
     if ( strcmp( user_answer, answers[question_choice] ) )
     {
