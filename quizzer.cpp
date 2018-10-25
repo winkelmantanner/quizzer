@@ -24,6 +24,8 @@ int main()
   
   short question_choice;
   
+  short char_index;
+
   char user_answer[MAX_ANSWER_LENGTH];
   
   ifstream fin;
@@ -34,10 +36,17 @@ int main()
   
   
   while(fin.getline( questions[counter], MAX_QUESTION_LENGTH-1, 
-    QUESTION_ANSWER_SEPARATOR ))
+    QUESTION_SEPARATOR ))
   {
-    fin.getline( answers[counter], MAX_ANSWER_LENGTH-1,
-      QUESTION_SEPARATOR );
+    char_index = strlen(questions[counter]) - 1;
+    while( char_index >= 0 && questions[counter][char_index] != ',') {
+      char_index--;
+    }
+    for( short k = char_index + 1; k < strlen(questions[counter]); k++ ) {
+      answers[counter][k - char_index - 1] = questions[counter][k];
+      answers[counter][k - char_index] = '\0';
+    }
+    questions[counter][char_index] = '\0';
     counter++;
   }
   
